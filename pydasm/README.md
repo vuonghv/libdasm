@@ -1,7 +1,10 @@
 
 pydasm -- python module wrapping libdasm
 ========================================
+
 (c) 2005  ero / dkbza.org
+
+2016 Vuong Hoang [vuonghv.cs@gmail.com]
 
 
 0. Acknowledgements
@@ -12,10 +15,13 @@ Thanks to jt and all the folks responsible for libdasm!
 1. What is pydasm?
 ==================
 
-pydasm is a python wrapper for libdasm. It attempts to capture all the
-functionality of libdasm and bring its versatility to Python. To the
-best of my knowledge there's no Python module for easily disassembling
-code. (Some monstrosities parsing objdump's output are the closest to it)
+pydasm is a python wrapper for libdasm and support both of python 2 and 3.
+
+It attempts to capture all the functionality of libdasm and bring its
+versatility to Python. To the best of my knowledge there's no Python module
+for easily disassembling code.
+
+(Some monstrosities parsing objdump's output are the closest to it)
 So, now there's one, and a pretty fine one I hope :)
 
 
@@ -24,10 +30,18 @@ So, now there's one, and a pretty fine one I hope :)
 
 You'll need first to compile the module:
 
- python setup.py build_ext
+```bash
+python setup.py build_ext
+```
 
 The resulting pydasm.so can be imported into Python and the disassembling
 madness may then begin.
+
+To install pydasm:
+
+```bash
+python setup.py install
+```
 
 The main libdasm function have been wrapped and have docstrings documenting
 their parameters.
@@ -35,8 +49,7 @@ their parameters.
 A small example script disassembling data from a buffer named, originally,
 'buffer' containing code follows:
 
->>>>>>>>>EXAMPLE>>>>>>>>>
-
+```python
 import pydasm
 
 # Very silly, nop and some xor's
@@ -49,10 +62,10 @@ while offset < len(buffer):
    if not i:
      break
    offset += i.length
-
-<<<<<<<<<EXAMPLE<<<<<<<<<
+```
 
 Yes, that easy... even easier than the already straightforward C counterpart.
+
 For a more elaborate example, please check "das.py", the Python counterpart
 to das.c
 
